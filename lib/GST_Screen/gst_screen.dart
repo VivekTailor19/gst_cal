@@ -16,7 +16,6 @@ bool per3 = false;
 bool per4 = false;
 bool per5 = false;
 
-
 class _GST_CalculatorState extends State<GST_Calculator> {
   @override
   Widget build(BuildContext context) {
