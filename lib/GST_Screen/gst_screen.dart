@@ -8,7 +8,6 @@ class GST_Calculator extends StatefulWidget {
 }
 
 dynamic amount = "0" ;
-
 dynamic final_amount = "" ;
 
 bool per1 = false;
