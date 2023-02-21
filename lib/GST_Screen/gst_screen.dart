@@ -10,6 +10,8 @@ class GST_Calculator extends StatefulWidget {
 dynamic amount = "0" ;
 dynamic final_amount = "" ;
 
+//bool per = false;
+
 bool per1 = false;
 bool per2 = false;
 bool per3 = false;
@@ -47,6 +49,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                       per3 = false;
                       per4 = false;
                       per5 = false;
+
                       final_amount = ( double.parse(amount) *  0.03 ) ;
                       });
                     },
@@ -58,6 +61,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                       per3 = false;
                       per4 = false;
                       per5 = false;
+
                       final_amount = ( double.parse(amount) *  0.05 ) ;
                     });
                   },
@@ -69,6 +73,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         per3 = true;
                         per4 = false;
                         per5 = false;
+
                         final_amount = ( double.parse(amount) *  0.12 ) ;
                       });
                     },
@@ -80,6 +85,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         per3 = false;
                         per4 = true;
                         per5 = false;
+
                         final_amount = ( double.parse(amount) *  0.18 ) ;
                       });
                     },
@@ -91,6 +97,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         per3 = false;
                         per4 = false;
                         per5 = true;
+
                         final_amount = ( double.parse(amount) *  0.28 ) ;
                       });
                     },
@@ -228,6 +235,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                           InkWell(onTap: (){
                             setState(() {
 
+                                  final_amount = "";
                                   int press = 1 ;
                                   String temp = amount ;
                                   amount = "";
