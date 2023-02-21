@@ -7,8 +7,10 @@ class GST_Calculator extends StatefulWidget {
   State<GST_Calculator> createState() => _GST_CalculatorState();
 }
 
-dynamic amount = "0";
+dynamic amount = "0" ;
+
 dynamic final_amount = "" ;
+
 bool per1 = false;
 bool per2 = false;
 bool per3 = false;
@@ -220,12 +222,22 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         children: [
                           InkWell( onTap: (){
                             setState(() {
-                              amount = 0;
+                              amount = "0";
+                              final_amount = "";
                             });
                           },
                               child: Button_Color(Text("AC",style: TextStyle(color: Colors.white,fontSize: 20),),)),
                           InkWell(onTap: (){
                             setState(() {
+
+                                  int press = 1 ;
+                                  String temp = amount ;
+                                  amount = "";
+                                  for(int i = 0 ; i < temp.length - press ; i++)
+                                  {
+                                     amount = amount +  temp[i] ;
+                                  }
+                                  temp = amount ;
 
                             });
                           },
@@ -240,7 +252,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
             ),
           ),
         ),
-        SizedBox(height: 10,),
+        //SizedBox(height: 10,),
 
         
       ],
@@ -305,28 +317,3 @@ class _GST_CalculatorState extends State<GST_Calculator> {
 
 
 }
-/*
-
-Row(
-
-          children: [
-            Text("$name", style: TextStyle(color: Color(0xffEEEEEE),fontSize: 14),),
-            Text("$rs", style: TextStyle(color: Color(0xffEEEEEE),fontSize: 16),),
-
-          ],
-        ),
-
-        Widget Price_Rs("ORIGINAL PRICE", "1000.00 Rs."),
-        Widget Price_Rs("FINAL PRICE", "1000.00 Rs."),
-
-
-Widget Name_Price(String name, String rs)
-  {
-    return Container(
-      height: 20,
-      width: double.infinity,
-      color: Color(0xff252427),
-      child:
-    );
-
-* */
