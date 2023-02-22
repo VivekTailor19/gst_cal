@@ -8,7 +8,11 @@ class GST_Calculator extends StatefulWidget {
 }
 
 dynamic amount = "";
-
+bool per1 = false;
+bool per2 = false;
+bool per3 = false;
+bool per4 = false;
+bool per5 = false;
 
 
 class _GST_CalculatorState extends State<GST_Calculator> {
@@ -24,7 +28,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
         SizedBox(height: 10,),
         
         Container(
-          height: 50,
+          height: 60,
           width: double.infinity,
           color: Color(0xffEEEEEE),
           alignment: Alignment.center,
@@ -37,35 +41,61 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                   children: [
                   InkWell(onTap: (){
                     setState(() {
-
+                      per1 = true;
+                      per2 = false;
+                      per3 = false;
+                      per4 = false;
+                      per5 = false;
                       amount = ( double.parse(amount) *  0.03 ) ;
+                      });
+                    },
+                      child: Button_Per(3,per1)),
+                  InkWell(onTap: (){
+                    setState(() {
+                      per1 = false;
+                      per2 = true;
+                      per3 = false;
+                      per4 = false;
+                      per5 = false;
+                      amount = ( double.parse(amount) *  0.05 ) ;
                     });
                   },
-                      child: Button_Per(3)),
+                      child: Button_Per(5,per2)),
                     InkWell(onTap: (){
                       setState(() {
-                        amount =  int.parse(amount) *  0.05 ;
+                        per1 = false;
+                        per2 = false;
+                        per3 = true;
+                        per4 = false;
+                        per5 = false;
+                        amount = ( double.parse(amount) *  0.12 ) ;
                       });
                     },
-                        child: Button_Per(5)),
+                        child: Button_Per(12,per3)),
                     InkWell(onTap: (){
                       setState(() {
-                        amount =  int.parse(amount) *  0.12 ;
+                        per1 = false;
+                        per2 = false;
+                        per3 = false;
+                        per4 = true;
+                        per5 = false;
+                        amount = ( double.parse(amount) *  0.18 ) ;
                       });
                     },
-                        child: Button_Per(12)),
+                        child: Button_Per(18,per4)),
                     InkWell(onTap: (){
                       setState(() {
-                        amount =  int.parse(amount) *  0.18 ;
+                        per1 = false;
+                        per2 = false;
+                        per3 = false;
+                        per4 = false;
+                        per5 = true;
+                        amount = ( double.parse(amount) *  0.28 ) ;
                       });
                     },
-                        child: Button_Per(18)),
-                    InkWell(onTap: (){
-                      setState(() {
-                        amount =  int.parse(amount) *  0.28 ;
-                      });
-                    },
-                        child: Button_Per(28)),
+                        child: Button_Per(28,per5)),
+
+
                 ],),
               )
             ],
@@ -183,13 +213,25 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                     height: double.infinity,
                     width: 100,
                     alignment: Alignment.center,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Button_Color(Text("AC",style: TextStyle(color: Colors.white,fontSize: 20),),),
-                        Button_Color(Icon(Icons.backspace_outlined,size: 20,color: Colors.white,))
-                        // Button  <<-
-                      ],
+                    child: Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          InkWell( onTap: (){
+                            setState(() {
+                              amount = 0;
+                            });
+                          },
+                              child: Button_Color(Text("AC",style: TextStyle(color: Colors.white,fontSize: 20),),)),
+                          InkWell(onTap: (){
+                            setState(() {
+
+                            });
+                          },
+                              child: Button_Color(Icon(Icons.backspace_outlined,size: 20,color: Colors.white,)))
+                          // Button  <<-
+                        ],
+                      ),
                     ) ,
                   ),
                 ),  //   Buttons
@@ -228,13 +270,15 @@ class _GST_CalculatorState extends State<GST_Calculator> {
         );
       }
       
-      Widget Button_Per(int num)
+      Widget Button_Per(int num,bool click)
       {
         return Container(
-          height: 20,
-          width: 30,
-          child: Text("${num}%",style: TextStyle(fontSize: 15),),
-          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(5))),
+          height: 30,
+          width: 50,
+          alignment: Alignment.center,
+          child: Text("${num}%",style: TextStyle(fontSize: 20),),
+          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(5)),
+              color: click ? Color(0xffFF6B00) : Colors.white),
         );
       }
       Widget Button_Color(Widget w1)
