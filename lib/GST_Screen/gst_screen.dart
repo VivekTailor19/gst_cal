@@ -7,15 +7,20 @@ class GST_Calculator extends StatefulWidget {
   State<GST_Calculator> createState() => _GST_CalculatorState();
 }
 
+dynamic amount = "";
+
+
+
 class _GST_CalculatorState extends State<GST_Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
     body: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(height: 10,),
 
-        Name_Price("ORIGINAL PRICE", "1000"),
+        Name_Price("ORIGINAL PRICE", "$amount"),
         SizedBox(height: 10,),
         
         Container(
@@ -30,11 +35,37 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                  Button_Per(3),
-                  Button_Per(5),
-                  Button_Per(12),
-                  Button_Per(18),
-                  Button_Per(28),
+                  InkWell(onTap: (){
+                    setState(() {
+
+                      amount = ( double.parse(amount) *  0.03 ) ;
+                    });
+                  },
+                      child: Button_Per(3)),
+                    InkWell(onTap: (){
+                      setState(() {
+                        amount =  int.parse(amount) *  0.05 ;
+                      });
+                    },
+                        child: Button_Per(5)),
+                    InkWell(onTap: (){
+                      setState(() {
+                        amount =  int.parse(amount) *  0.12 ;
+                      });
+                    },
+                        child: Button_Per(12)),
+                    InkWell(onTap: (){
+                      setState(() {
+                        amount =  int.parse(amount) *  0.18 ;
+                      });
+                    },
+                        child: Button_Per(18)),
+                    InkWell(onTap: (){
+                      setState(() {
+                        amount =  int.parse(amount) *  0.28 ;
+                      });
+                    },
+                        child: Button_Per(28)),
                 ],),
               )
             ],
@@ -42,7 +73,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
         ), //   GST Percentage BAR
         SizedBox(height: 10,),
 
-        Name_Price("FINAL PRICE", "10500"),
+        Name_Price("FINAL PRICE", "$amount" ),
         SizedBox(height: 10,),
 
         Padding(
@@ -70,29 +101,103 @@ class _GST_CalculatorState extends State<GST_Calculator> {
           height: 400,
           width: double.infinity,
           alignment: Alignment.center,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 400,
-               width: 300,
-              ),  //   Numbers
-              Container(
-                height: 400,
-                width: 100,
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    Button_Color(Text("AC",style: TextStyle(color: Colors.white,fontSize: 20),),),
-                    Button_Color(Icon(Icons.backspace_outlined,size: 20,color: Colors.white,))
-                    // Button  <<-
-                  ],
-                ) ,
-              ),  //   Buttons
-            ],
-          ),
-        )
+          child: Expanded(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
 
+              children: [
+                Expanded(
+                  child: Container(
+                    height: double.infinity,
+                    width: 300,
+                    child: Expanded(
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                              Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "7"; }); },
+                                  child: Number("7"))),
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "8"; }); },
+                                    child: Number("8"))),
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "9"; }); },
+                                    child: Number("9"))),
+                            ],),
+                          ),
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "4"; }); },
+                                    child: Number("4"))),
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "5"; }); },
+                                    child: Number("5"))),
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "6"; }); },
+                                    child: Number("6"))),
+                              ],),
+                          ),
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "1"; }); },
+                                    child: Number("1"))),
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "2"; }); },
+                                    child: Number("2"))),
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "3"; }); },
+                                    child: Number("3"))),
+                              ],),
+                          ),
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "00"; }); },
+                                    child: Number("00"))),
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "0"; }); },
+                                    child: Number("0"))),
+                                Expanded(child: InkWell(onTap: (){
+                                  setState(() { amount = "."; }); },
+                                    child: Number("."))),
+                              ],),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),  //   Numbers
+                Expanded(
+                  child: Container(
+                    height: double.infinity,
+                    width: 100,
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Button_Color(Text("AC",style: TextStyle(color: Colors.white,fontSize: 20),),),
+                        Button_Color(Icon(Icons.backspace_outlined,size: 20,color: Colors.white,))
+                        // Button  <<-
+                      ],
+                    ) ,
+                  ),
+                ),  //   Buttons
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 10,),
 
         
       ],
@@ -116,7 +221,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
                      Text("$name", style: TextStyle(fontSize: 16),),
-                      Text("${rupess}.00 Rs. ", style: TextStyle(fontSize: 20),),
+                      Text("${rupess} Rs. ", style: TextStyle(fontSize: 20),),
                              ],
                     ),
               ),
@@ -135,7 +240,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
       Widget Button_Color(Widget w1)
       {
         return Container(
-            height: double.infinity,
+            height:150,
             width: 90,
             alignment: Alignment.center,
             child:  w1 ,
@@ -143,7 +248,15 @@ class _GST_CalculatorState extends State<GST_Calculator> {
           );
       }
 
-
+      Widget Number(String num)
+      {
+          return Container(
+            height: 100,
+            width: 100,
+            alignment: Alignment.center,
+            child:  Text("$num",style: TextStyle(fontSize: 15),),
+          );
+        }
 
 
 }
