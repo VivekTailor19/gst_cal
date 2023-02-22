@@ -7,7 +7,7 @@ class GST_Calculator extends StatefulWidget {
   State<GST_Calculator> createState() => _GST_CalculatorState();
 }
 
-dynamic amount = 0;
+dynamic amount = "0";
 dynamic final_amount = "" ;
 bool per1 = false;
 bool per2 = false;
@@ -152,7 +152,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                                   setState(() { amount = amount + "7"; }); },
                                   child: Number("7"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() {amount = amount + "8"; }); },
+                                  setState(() { amount = amount + "8"; }); },
                                     child: Number("8"))),
                                 Expanded(child: InkWell(onTap: (){
                                   setState(() { amount = amount + "9"; }); },
@@ -185,7 +185,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                                   setState(() { amount = amount + "2"; }); },
                                     child: Number("2"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = amount + "3";}); },
+                                  setState(() { amount = amount + "3"; }); },
                                     child: Number("3"))),
                               ],),
                           ),
@@ -194,7 +194,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = amount + "00"; }); },
+                                  setState(() { amount = amount + "00";; }); },
                                     child: Number("00"))),
                                 Expanded(child: InkWell(onTap: (){
                                   setState(() { amount = amount + "0"; }); },
