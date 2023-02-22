@@ -7,7 +7,8 @@ class GST_Calculator extends StatefulWidget {
   State<GST_Calculator> createState() => _GST_CalculatorState();
 }
 
-dynamic amount = "";
+dynamic amount = 0;
+dynamic final_amount = "" ;
 bool per1 = false;
 bool per2 = false;
 bool per3 = false;
@@ -46,7 +47,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                       per3 = false;
                       per4 = false;
                       per5 = false;
-                      amount = ( double.parse(amount) *  0.03 ) ;
+                      final_amount = ( double.parse(amount) *  0.03 ) ;
                       });
                     },
                       child: Button_Per(3,per1)),
@@ -57,7 +58,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                       per3 = false;
                       per4 = false;
                       per5 = false;
-                      amount = ( double.parse(amount) *  0.05 ) ;
+                      final_amount = ( double.parse(amount) *  0.05 ) ;
                     });
                   },
                       child: Button_Per(5,per2)),
@@ -68,7 +69,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         per3 = true;
                         per4 = false;
                         per5 = false;
-                        amount = ( double.parse(amount) *  0.12 ) ;
+                        final_amount = ( double.parse(amount) *  0.12 ) ;
                       });
                     },
                         child: Button_Per(12,per3)),
@@ -79,7 +80,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         per3 = false;
                         per4 = true;
                         per5 = false;
-                        amount = ( double.parse(amount) *  0.18 ) ;
+                        final_amount = ( double.parse(amount) *  0.18 ) ;
                       });
                     },
                         child: Button_Per(18,per4)),
@@ -90,7 +91,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         per3 = false;
                         per4 = false;
                         per5 = true;
-                        amount = ( double.parse(amount) *  0.28 ) ;
+                        final_amount = ( double.parse(amount) *  0.28 ) ;
                       });
                     },
                         child: Button_Per(28,per5)),
@@ -103,7 +104,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
         ), //   GST Percentage BAR
         SizedBox(height: 10,),
 
-        Name_Price("FINAL PRICE", "$amount" ),
+        Name_Price("FINAL PRICE", "$final_amount" ),
         SizedBox(height: 10,),
 
         Padding(
@@ -148,13 +149,13 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                               Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "7"; }); },
+                                  setState(() { amount = amount + "7"; }); },
                                   child: Number("7"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "8"; }); },
+                                  setState(() {amount = amount + "8"; }); },
                                     child: Number("8"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "9"; }); },
+                                  setState(() { amount = amount + "9"; }); },
                                     child: Number("9"))),
                             ],),
                           ),
@@ -163,13 +164,13 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "4"; }); },
+                                  setState(() { amount = amount + "4"; }); },
                                     child: Number("4"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "5"; }); },
+                                  setState(() { amount = amount + "5"; }); },
                                     child: Number("5"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "6"; }); },
+                                  setState(() { amount = amount + "6"; }); },
                                     child: Number("6"))),
                               ],),
                           ),
@@ -178,13 +179,13 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "1"; }); },
+                                  setState(() { amount = amount + "1"; }); },
                                     child: Number("1"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "2"; }); },
+                                  setState(() { amount = amount + "2"; }); },
                                     child: Number("2"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "3"; }); },
+                                  setState(() { amount = amount + "3";}); },
                                     child: Number("3"))),
                               ],),
                           ),
@@ -193,13 +194,13 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "00"; }); },
+                                  setState(() { amount = amount + "00"; }); },
                                     child: Number("00"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "0"; }); },
+                                  setState(() { amount = amount + "0"; }); },
                                     child: Number("0"))),
                                 Expanded(child: InkWell(onTap: (){
-                                  setState(() { amount = "."; }); },
+                                  setState(() { amount = amount + "."; }); },
                                     child: Number("."))),
                               ],),
                           ),
