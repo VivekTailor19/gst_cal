@@ -7,7 +7,7 @@ class GST_Calculator extends StatefulWidget {
   State<GST_Calculator> createState() => _GST_CalculatorState();
 }
 
-dynamic amount = "0" ;
+dynamic amount = "" ;
 dynamic final_amount = "" ;
 
 //bool per = false;
@@ -234,6 +234,11 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                               child: Button_Color(Text("AC",style: TextStyle(color: Colors.white,fontSize: 20),),)),
                           InkWell(onTap: (){
                             setState(() {
+                                  bool per1 = false;
+                                  bool per2 = false;
+                                  bool per3 = false;
+                                  bool per4 = false;
+                                  bool per5 = false;
 
                                   final_amount = "";
                                   int press = 1 ;
