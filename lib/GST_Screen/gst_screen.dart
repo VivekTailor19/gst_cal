@@ -17,6 +17,7 @@ bool per2 = false;
 bool per3 = false;
 bool per4 = false;
 bool per5 = false;
+dynamic per = "";
 
 class _GST_CalculatorState extends State<GST_Calculator> {
   @override
@@ -49,8 +50,9 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                       per3 = false;
                       per4 = false;
                       per5 = false;
+                      per = 0.03;
 
-                      final_amount = ( double.parse(amount) *  0.03 ) ;
+                      final_amount = ( double.parse(amount) *  0.03 ) + double.parse(amount) ;
                       });
                     },
                       child: Button_Per(3,per1)),
@@ -61,8 +63,9 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                       per3 = false;
                       per4 = false;
                       per5 = false;
+                      per = 0.05;
 
-                      final_amount = ( double.parse(amount) *  0.05 ) ;
+                      final_amount = ( double.parse(amount) *  0.05 ) + double.parse(amount);
                     });
                   },
                       child: Button_Per(5,per2)),
@@ -73,8 +76,9 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         per3 = true;
                         per4 = false;
                         per5 = false;
+                        per = 0.12;
 
-                        final_amount = ( double.parse(amount) *  0.12 ) ;
+                        final_amount = ( double.parse(amount) *  0.12 ) + double.parse(amount) ;
                       });
                     },
                         child: Button_Per(12,per3)),
@@ -85,8 +89,9 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         per3 = false;
                         per4 = true;
                         per5 = false;
+                        per = 0.18;
 
-                        final_amount = ( double.parse(amount) *  0.18 ) ;
+                        final_amount = ( double.parse(amount) *  0.18 ) + double.parse(amount) ;
                       });
                     },
                         child: Button_Per(18,per4)),
@@ -97,8 +102,9 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         per3 = false;
                         per4 = false;
                         per5 = true;
+                        per = 0.28;
 
-                        final_amount = ( double.parse(amount) *  0.28 ) ;
+                        final_amount = ( double.parse(amount) *  0.28 ) + double.parse(amount) ;
                       });
                     },
                         child: Button_Per(28,per5)),
@@ -227,20 +233,15 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                         children: [
                           InkWell( onTap: (){
                             setState(() {
-                              amount = "0";
+                              amount = "";
                               final_amount = "";
                             });
                           },
                               child: Button_Color(Text("AC",style: TextStyle(color: Colors.white,fontSize: 20),),)),
                           InkWell(onTap: (){
                             setState(() {
-                                  bool per1 = false;
-                                  bool per2 = false;
-                                  bool per3 = false;
-                                  bool per4 = false;
-                                  bool per5 = false;
 
-                                  final_amount = "";
+
                                   int press = 1 ;
                                   String temp = amount ;
                                   amount = "";
@@ -249,6 +250,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                                      amount = amount +  temp[i] ;
                                   }
                                   temp = amount ;
+                                  final_amount =final_amount = ( double.parse(temp) *  per ) + double.parse(temp) ;;
 
                             });
                           },
