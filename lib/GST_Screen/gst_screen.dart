@@ -250,7 +250,7 @@ class _GST_CalculatorState extends State<GST_Calculator> {
                                      amount = amount +  temp[i] ;
                                   }
                                   temp = amount ;
-                                  final_amount =final_amount = ( double.parse(temp) *  per ) + double.parse(temp) ;;
+                                  final_amount = ( double.parse(temp) *  per ) + double.parse(temp) ;;
 
                             });
                           },
