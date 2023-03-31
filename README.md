@@ -17,5 +17,5 @@ samples, guidance on mobile development, and a full API reference.
 
 <p>
 
-<img src = "https://user-images.githubusercontent.com/119835214/220525757-6dc5ecbb-0ecd-4955-9c4f-9a1f368f3f85.JPG " height = "60%" width = "60% " >
+<img src = "https://user-images.githubusercontent.com/119835214/229092056-79a8fa00-8bd7-4819-836e-56026bb84e0e.png" height = "60%" width = "60% " >
 </p>
